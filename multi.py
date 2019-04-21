@@ -2,8 +2,6 @@ import threading
 import time
 import RPi.GPIO as GPIO
 
-#import RPi.GPIO as GPIO
-
 def moverMotor(threadID,pos,v):
     count = 0
     global lines
@@ -150,7 +148,7 @@ def moverMotor(threadID,pos,v):
             
             GPIO.output(6, GPIO.HIGH)
             GPIO.output(13, GPIO.LOW)
-            GPIO.output(29, GPIO.LOW)
+            GPIO.output(19, GPIO.LOW)
             GPIO.output(26, GPIO.HIGH)
             time.sleep(v)
             #print(str(threadID) + " ,Step # " + str(count))
@@ -180,10 +178,10 @@ GPIO.setup(19, GPIO.OUT)
 GPIO.setup(26, GPIO.OUT)
 k=0
 v=.0009
-
+threads = []
 for i in range(0,int(len(lines)/6)):
     print("Set " + str(i + 1))
-    threads = []
+    threads.clear()
     for j in range(0,3):
         t = threading.Thread(target=moverMotor, args=("Thread-" + str(j + 1),j + posicion,v))
         threads.append(t)
