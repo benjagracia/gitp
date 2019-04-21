@@ -11,10 +11,14 @@ GPIO.setup(18, GPIO.OUT)
 GPIO.setup(17, GPIO.OUT)
 GPIO.setup(27, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
+
 GPIO.setup(23, GPIO.OUT)
 GPIO.setup(24, GPIO.OUT)
+GPIO.setup(25, GPIO.OUT)
+GPIO.setup(5, GPIO.OUT)
 
 k=0
+v=.0007
 
 posicion = 0
 for i in range(0,int(len(lines)/6)):
@@ -37,17 +41,106 @@ for i in range(0,int(len(lines)/6)):
         if motor1Count < motor1Steps:
             print("Se cambio el motor 1 en iteracion " + str(motor1Count + 1))
             
-            GPIO.output(18, GPIO.HIGH)
-            time.sleep(1)
-            GPIO.output(18, GPIO.LOW)
+            GPIO.output(23, GPIO.HIGH)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(25, GPIO.LOW)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.HIGH)
+            GPIO.output(24, GPIO.HIGH)
+            GPIO.output(25, GPIO.LOW)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.LOW)
+            GPIO.output(24, GPIO.HIGH)
+            GPIO.output(25, GPIO.LOW)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.LOW)
+            GPIO.output(24, GPIO.HIGH)
+            GPIO.output(25, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.LOW)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(25, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.LOW)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(25, GPIO.HIGH)
+            GPIO.output(5, GPIO.HIGH)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.LOW)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(25, GPIO.HIGH)
+            GPIO.output(5, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(23, GPIO.HIGH)
+            GPIO.output(24, GPIO.LOW)
+            GPIO.output(25, GPIO.LOW)
+            GPIO.output(5, GPIO.HIGH)
+            time.sleep(v)
+            
             
             motor1Count = motor1Count + 1
         if motor2Count < motor2Steps:
             print("Se cambio el motor 2 en iteracion " + str(motor2Count + 1))
             
-            GPIO.output(17, GPIO.HIGH)
-            time.sleep(1)
+            GPIO.output(18, GPIO.HIGH)
             GPIO.output(17, GPIO.LOW)
+            GPIO.output(27, GPIO.LOW)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.HIGH)
+            GPIO.output(17, GPIO.HIGH)
+            GPIO.output(27, GPIO.LOW)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.LOW)
+            GPIO.output(17, GPIO.HIGH)
+            GPIO.output(27, GPIO.LOW)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.LOW)
+            GPIO.output(17, GPIO.HIGH)
+            GPIO.output(27, GPIO.HIGH)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.LOW)
+            GPIO.output(17, GPIO.LOW)
+            GPIO.output(27, GPIO.HIGH)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.LOW)
+            GPIO.output(17, GPIO.LOW)
+            GPIO.output(27, GPIO.HIGH)
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.LOW)
+            GPIO.output(17, GPIO.LOW)
+            GPIO.output(27, GPIO.HIGH)
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(v)
+            
+            GPIO.output(18, GPIO.HIGH)
+            GPIO.output(17, GPIO.LOW)
+            GPIO.output(27, GPIO.LOW)
+            GPIO.output(22, GPIO.HIGH)
+            time.sleep(v)
             
             motor2Count = motor2Count + 1
         if motor3Count < motor3Steps:
