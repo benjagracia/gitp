@@ -25,12 +25,12 @@ ip = socket.gethostbyname(host_name)
 port = 1234
 
 #Asignarlo al socket
-soc.bind((host_name, port))
+soc.bind(('', port))
 
 print(host_name, '({})'.format(ip))
 
 #Recibir nombre
-name = input('Ingresa tu nombre: ')
+name = str(input('Ingresa tu nombre: '))
 soc.listen(1) #Try to locate using socket
 
 #Esperar nuevas conexiones
@@ -45,10 +45,12 @@ print('Conexion establecida. Conexion de: {}, ({})'.format(addr[0], addr[0]))
 client_name = connection.recv(1024)
 client_name = client_name.decode()
 
+
 print(client_name + ' se ha conectado.')
 
 #Enviar y encriptar mensaje
 connection.send(name.encode())
+
 
 #Funcion que reinicia la espera si el client se desconecta
 def esperarNuevaConexion():
