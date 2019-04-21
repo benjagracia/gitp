@@ -153,6 +153,7 @@ def moverMotor(threadID,pos,v):
             GPIO.output(29, GPIO.LOW)
             GPIO.output(26, GPIO.HIGH)
             time.sleep(v)
+            #print(str(threadID) + " ,Step # " + str(count))
         count+=1
         print(str(threadID) + " ,Step # " + str(count))
         time.sleep(v)
@@ -178,7 +179,7 @@ GPIO.setup(13, GPIO.OUT)
 GPIO.setup(19, GPIO.OUT)
 GPIO.setup(26, GPIO.OUT)
 k=0
-v=.0005
+v=.0009
 
 for i in range(0,int(len(lines)/6)):
     print("Set " + str(i + 1))
