@@ -1,6 +1,6 @@
 import _thread
 import time
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 motor1Done = False
 motor2Done = False
@@ -9,119 +9,26 @@ def moverMotor(threadID,pos,v,sets):
     posicion = 0
     global motor1Done
     global motor2Done
-    for i in range(0,sets):
+    setCount = 0
+    while(setCount < sets):
         motor1Done = False
         motor2Done = False
         count = 0
-        steps = int(lines[posicion] + pos)
+        steps = int(lines[int(posicion) + int(pos)])
         while(count < steps or motor1Done == False or motor2Done == False):
             if(threadID == "Thread-1"):
                 if(count == steps):
                     motor1Done = True
                 if motor1Done == True:
                     continue
-                GPIO.output(23, GPIO.HIGH)
-                GPIO.output(24, GPIO.LOW)
-                GPIO.output(25, GPIO.LOW)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.HIGH)
-                GPIO.output(24, GPIO.HIGH)
-                GPIO.output(25, GPIO.LOW)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(24, GPIO.HIGH)
-                GPIO.output(25, GPIO.LOW)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(24, GPIO.HIGH)
-                GPIO.output(25, GPIO.HIGH)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(24, GPIO.LOW)
-                GPIO.output(25, GPIO.HIGH)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(24, GPIO.LOW)
-                GPIO.output(25, GPIO.HIGH)
-                GPIO.output(5, GPIO.HIGH)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.LOW)
-                GPIO.output(24, GPIO.LOW)
-                GPIO.output(25, GPIO.HIGH)
-                GPIO.output(5, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(23, GPIO.HIGH)
-                GPIO.output(24, GPIO.LOW)
-                GPIO.output(25, GPIO.LOW)
-                GPIO.output(5, GPIO.HIGH)
-                time.sleep(v)
 
             elif(threadID == "Thread-2"):
                 if(count == steps):
                     motor2Done = True
                 if motor2Done == True:
                     continue
-                GPIO.output(18, GPIO.HIGH)
-                GPIO.output(17, GPIO.LOW)
-                GPIO.output(27, GPIO.LOW)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.HIGH)
-                GPIO.output(17, GPIO.HIGH)
-                GPIO.output(27, GPIO.LOW)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.LOW)
-                GPIO.output(17, GPIO.HIGH)
-                GPIO.output(27, GPIO.LOW)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.LOW)
-                GPIO.output(17, GPIO.HIGH)
-                GPIO.output(27, GPIO.HIGH)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.LOW)
-                GPIO.output(17, GPIO.LOW)
-                GPIO.output(27, GPIO.HIGH)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.LOW)
-                GPIO.output(17, GPIO.LOW)
-                GPIO.output(27, GPIO.HIGH)
-                GPIO.output(22, GPIO.HIGH)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.LOW)
-                GPIO.output(17, GPIO.LOW)
-                GPIO.output(27, GPIO.HIGH)
-                GPIO.output(22, GPIO.LOW)
-                time.sleep(v)
-                
-                GPIO.output(18, GPIO.HIGH)
-                GPIO.output(17, GPIO.LOW)
-                GPIO.output(27, GPIO.LOW)
-                GPIO.output(22, GPIO.HIGH)
-                time.sleep(v)            
             count+=1
-            print("Set # " + i + "Thread # " + str(threadID) + " ,Step # " + str(count))
+            print("Set # " + str(i + 1) + " Thread # " + str(threadID) + " ,Step # " + str(count))
         posicion = posicion + 6
 
 s = open("archivo.txt", "r")
