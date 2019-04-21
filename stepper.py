@@ -7,7 +7,7 @@ GPIO.setup(17, GPIO.OUT)
 GPIO.setup(27, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 v = 0.0007
-k=0
+k = 0
 while(k<512):
     GPIO.output(18, GPIO.HIGH)
     GPIO.output(17, GPIO.LOW)

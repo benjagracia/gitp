@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-s = open("archivo.txt", "r")
+s = open("M.txt", "r")
 lines = s.read()
 lines = lines.replace(';',' ')
 lines = lines.split(' ')
@@ -18,7 +18,7 @@ GPIO.setup(25, GPIO.OUT)
 GPIO.setup(5, GPIO.OUT)
 
 k=0
-v=.0007
+v=.001
 
 posicion = 0
 for i in range(0,int(len(lines)/6)):
