@@ -119,21 +119,23 @@ while True:
    if opcion == "1":
       #Se recibe nombre
       nombre = connection.recv(1024)
+      nombre = nombre.decode()
       #Si se desconecto
       if not nombre:
          print(client_name + " se ha desconectado")
          esperarNuevaConexion()
          continue
-      nombre = nombre.decode()
+      
       #Se recibe tipo
       tipo = connection.recv(1024)
+      tipo = tipo.decode()
       #Se desconecto
       if not tipo:
          print(client_name + " se ha desconectado")
          esperarNuevaConexion()
          continue
 
-      tipo = tipo.decode()
+      
 
       #Llamar funcion para agregar al json
       agregarPersona(nombre,tipo)
@@ -145,6 +147,8 @@ while True:
    #Enviar la lista de personas
    if opcion == "2":
       personas = enlistarPersonas()
+      if personas == "":
+         personas = "No hay datos en el servidor"
       connection.send(personas.encode())
       continue
 

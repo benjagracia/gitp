@@ -44,7 +44,7 @@ while True:
         tipo = input(str("Escribe un tipo: "))
         sock.send(tipo.encode())
         
-        mensajeConfirm = sock.recv(1204)
+        mensajeConfirm = sock.recv(1024)
         mensajeConfirm = mensajeConfirm.decode()
         print(mensajeConfirm)
         print("\n")
@@ -70,7 +70,7 @@ while True:
         sock.send(message.encode())
         print("\n")
         continue  
-    if message == "3":
+    if message == "6":
         sock.send(message.encode())
         print("\n")
         break
