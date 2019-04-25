@@ -5,7 +5,9 @@ from tkinter import *
 sock = socket.socket()
 
 def A():
-    pass
+    message = "3"
+    sock.send(message.encode())
+    
 def B():
     pass
 def C():
@@ -52,8 +54,7 @@ def conectar():
     botonAyuda = Button(ventana,text = "Ayuda",command=ayuda)
     botonAyuda.grid(column = 1, row = 3)
     print("{} se ha unido.".format(server_name))
-
-    sock.close()
+      
 
 
 
