@@ -3,7 +3,7 @@ import time,socket,sys
 from tkinter import *
 
 sock = socket.socket()
-
+Persona=str
 def A():
     message = "3"
     sock.send(message.encode())
@@ -15,6 +15,10 @@ def B():
 def C():
     message="5"
     sock.send(message.encode())
+    pass
+def Agregar():
+    message="1"
+    sock.send(entryPersona.encode())
     pass
 def ayuda():
     pass
@@ -55,8 +59,12 @@ def conectar():
     botonB.grid(column = 1, row = 1)
     botonC = Button(ventana,text = "C",command=C)
     botonC.grid(column = 1, row = 2)
+    botonD = Button(ventana,text= "Agregar", command=Agregar)
+    botonD.grid(column=1, row=4)
+    entryPersona = Entry(ventana,width = 20)
+    entryPersona.grid(column = 1, row = 3)
     botonAyuda = Button(ventana,text = "Ayuda",command=ayuda)
-    botonAyuda.grid(column = 1, row = 3)
+    botonAyuda.grid(column = 1, row = 5)
     print("{} se ha unido.".format(server_name))
       
 
@@ -94,7 +102,6 @@ entryIP.grid(column = 0, row = 3)
 boton = Button(ventana,text = "Conectar",command=conectar)
 boton.grid(column = 0, row = 4)
 
+
+
 ventana.mainloop()
-
-
-

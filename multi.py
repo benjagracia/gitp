@@ -320,7 +320,7 @@ GPIO.setup(13, GPIO.OUT)
 GPIO.setup(19, GPIO.OUT)
 GPIO.setup(26, GPIO.OUT)
 k=0
-v=.0009
+v=.0009 #velocidad
 threads = []
 for i in range(0,int(len(lines)/6)):
     print("Set " + str(i + 1))
@@ -333,3 +333,4 @@ for i in range(0,int(len(lines)/6)):
         x.join()
     posicion+=6
     print("All other threads are finished")
+
