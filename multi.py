@@ -333,4 +333,3 @@ for i in range(0,int(len(lines)/6)):
         x.join()
     posicion+=6
     print("All other threads are finished")
-
